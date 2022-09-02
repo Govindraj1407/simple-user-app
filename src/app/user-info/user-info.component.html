@@ -1,0 +1,23 @@
+<div>
+    <form [formGroup]="userInfoForm" (ngSubmit)="onSubmit()">
+        <div class="row padding-10">
+            <div class="col-3 pr-3">
+                <div class="form-group">
+                    <label class="t-form-control-label padding-right-5">First Name:</label>
+                    <input type="text" maxlength="100" formControlName="firstName" class="form-control "/>
+                </div>
+            </div>
+        </div>
+        <div class="row padding-10">
+            <div class="col-3 pr-3">
+                <div class="form-group">
+                    <label class="t-form-control-label padding-right-5">Last Name:</label>
+                    <input type="text" maxlength="100" formControlName="lastName" class="form-control"/>
+                </div>
+            </div>
+        </div>
+        <button type="submit" [disabled]="!userInfoForm.valid">Submit</button>
+    </form>
+    <p *ngIf="isSaved" style="color: green;">Saved successfully</p>
+    <p *ngIf="isErrorOccured" style="color: red;">Error occured while save user information</p>
+</div>
